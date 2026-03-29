@@ -14,12 +14,12 @@ timezone: Asia/Shanghai
 # jekyll-seo-tag settings › https://github.com/jekyll/jekyll-seo-tag/blob/master/docs/usage.md
 # ↓ --------------------------
 
-title: Minara AI Blog
+title: Yi Jian Blog
 
-tagline: AI-powered tools for developers
+tagline: 技术探索与实践记录
 
 description: >-
-  Building open-source AI tools. Write once, publish everywhere.
+  Yi Jian 的技术博客，记录 AI、开发工具、开源项目等领域的探索与实践。
 
 # Fill in the protocol & hostname for your site.
 # E.g. 'https://username.github.io', note that it does not end with a '/'.
