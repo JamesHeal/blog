@@ -1,0 +1,7 @@
+{
+  "tool_name": "Bash",
+  "tool_input_preview": "{\"command\":\"# Configure GitHub Pages to use Actions instead of branch deploy\\ngh api repos/JamesHeal/blog/pages -X PUT --input - <<'EOF'\\n{\\\"build_type\\\":\\\"workflow\\\",\\\"source\\\":{\\\"branch\\\":\\\"main\\\",\\...",
+  "error": "Exit code 1\n{\"message\":\"Not Found\",\"documentation_url\":\"https://docs.github.com/rest/pages/pages#update-information-about-a-apiname-pages-site\",\"status\":\"404\"}gh: Not Found (HTTP 404)",
+  "timestamp": "2026-03-29T05:03:41.266Z",
+  "retry_count": 1
+}
