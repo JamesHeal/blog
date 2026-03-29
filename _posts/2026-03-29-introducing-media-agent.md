@@ -5,6 +5,9 @@ date: 2026-03-29 10:00:00 +0800
 categories: [tools, open-source]
 tags: [claude-code, media-agent, publishing, ai]
 description: "开源 Claude Code Skill 套件，让开发者写一次内容，智能适配并发布到多个平台。"
+image:
+  path: /assets/img/banner.png
+  alt: "media-agent by Minara AI"
 ---
 
 如果你是一个喜欢写技术博客的开发者，你大概率经历过这样的流程：在编辑器里用 Markdown 写完一篇文章，然后开始漫长的"发布之旅"。先复制到 Dev.to，调格式、加 frontmatter、上传封面图。再打开 Hashnode，重新粘贴一遍，改一下标签格式。然后是 GitHub Pages 博客，要 commit 到 `_posts/` 目录。想发 Twitter 线程？得把 3000 字拆成 10 条推文……
