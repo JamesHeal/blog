@@ -1,88 +1,80 @@
 ---
 layout: post
-title: "介绍 media-agent：写一次，发布到所有平台"
+title: "Introducing media-agent: Write Once, Publish Everywhere"
 date: 2026-03-29 10:00:00 +0800
 categories: [tools, open-source]
 tags: [claude-code, media-agent, publishing, ai]
-description: "开源 Claude Code Skill 套件，让开发者写一次内容，智能适配并发布到多个平台。"
+description: "Open-source Claude Code Skills that let developers write content once and intelligently publish to multiple platforms."
 image:
-  path: /assets/img/banner.png
+  path: /assets/images/banner.png
   alt: "media-agent by Minara AI"
 ---
 
-如果你是一个喜欢写技术博客的开发者，你大概率经历过这样的流程：在编辑器里用 Markdown 写完一篇文章，然后开始漫长的"发布之旅"。先复制到 Dev.to，调格式、加 frontmatter、上传封面图。再打开 Hashnode，重新粘贴一遍，改一下标签格式。然后是 GitHub Pages 博客，要 commit 到 `_posts/` 目录。想发 Twitter 线程？得把 3000 字拆成 10 条推文……
+If you write technical blog posts, you know this workflow: write an article in Markdown, then the "publishing tour" begins. Copy to Dev.to, adjust frontmatter. Open Hashnode, paste again. GitHub Pages? Commit to `_posts/`. Twitter thread? Split 3000 words into 10 tweets under 280 chars each.
 
 <!--more-->
 
-这不是写作，这是搬砖。内容只写了一次，但发布的体力活重复了五次。
+This is not writing. This is manual labor. You wrote the content once, but the publishing busywork repeats five times.
 
-## 什么是 media-agent
+## What is media-agent
 
-[media-agent](https://github.com/Minara-AI/media-agent) 是一套开源的 Claude Code Skills，让你在终端里完成从构思到发布的整个内容创作流程。
+[media-agent](https://github.com/Minara-AI/media-agent) is an open-source set of Claude Code Skills that handles the entire content creation pipeline from your terminal.
 
-核心理念：**写一次，智能适配到每个平台**。不是简单地截断或复制粘贴，而是真正理解每个平台的特点，生成结构性不同的内容变体。
+The core idea: **write once, intelligently adapt to each platform**. Not truncation or copy-paste, but real understanding of each platform's characteristics to generate structurally different content variants.
 
-media-agent 包含 6 个 Skill：
+| Skill | Purpose |
+|-------|---------|
+| `/media` | Master orchestrator — full guided workflow |
+| `/media-setup` | Configure platform connections and API keys |
+| `/media-idea` | Brainstorm topics, outlines, and hooks |
+| `/media-write` | Guided co-creation + platform variant generation |
+| `/media-image` | Diagrams via Excalidraw + AI-generated cover images |
+| `/media-publish` | One-command publish to all configured platforms |
 
-| Skill | 用途 |
-|-------|------|
-| `/media` | 主编排器——完整的引导式工作流 |
-| `/media-setup` | 配置平台连接和 API 密钥 |
-| `/media-idea` | 头脑风暴：话题、大纲、开头 |
-| `/media-write` | 引导式写作 + 生成各平台变体 |
-| `/media-image` | 用 Excalidraw 画图 + AI 生成封面 |
-| `/media-publish` | 一键发布到所有已配置的平台 |
+Each skill works independently. Use `/media-publish` to publish hand-written Markdown, or `/media` for the full guided workflow.
 
-每个 Skill 都可以独立使用。你可以只用 `/media-publish` 来发布手写的 Markdown，也可以用 `/media` 走完整流程。
+## The Workflow
 
-## 工作流程演示
+Type `/media` in Claude Code, and Claude guides you through:
 
-在 Claude Code 里输入 `/media`，Claude 会开始和你对话：
+**Step 1: Ideation** — Brainstorm your topic, refine the angle, build an outline.
 
-**第一步：构思** — 问你想写什么，帮你打磨选题和大纲。
+**Step 2: Writing** — Co-create section by section. Claude drafts, you give feedback, approved content goes to `source.md`.
 
-**第二步：写作** — 逐节共创。Claude 提出每一节的初稿，你给反馈，确认后写入 `source.md`。
+**Step 3: Image Generation** — [excalidraw-skill](https://github.com/Minara-AI/excalidraw-skill) generates hand-drawn architecture diagrams. Cover images via OpenAI, Flux, or Ideogram.
 
-**第三步：生成图片** — 用 [excalidraw-skill](https://github.com/Minara-AI/excalidraw-skill) 生成手绘风格的架构图。封面图可以用 OpenAI、Flux 或 Ideogram 生成。
+**Step 4: Publish** — Reads each platform adapter's rules, generates platform-specific variants, publishes via API in one go.
 
-**第四步：发布** — 读取每个平台适配器的规则，生成平台特定的变体，通过 API 一键发布。
+Your content and images live in Git. Your repo is your CMS.
 
-整个过程，你的内容和图片都保存在 Git 仓库里。你的仓库就是你的 CMS。
+## Core Design: "Adapt", Not "Truncate"
 
-## 核心设计："适配"不是"截断"
+A Twitter thread is not a blog post cut to 280 characters. It's a structurally different piece of work. A WeChat article needs inline-styled HTML. Dev.to supports Liquid tags.
 
-这是 media-agent 和其他跨平台发布工具最大的区别。
+Each platform adapter contains a `format.md` that describes content conventions in natural language. Claude reads it and rewrites `source.md` into the platform's native best format.
 
-一条 Twitter 线程不是把博客文章砍到 280 字。它是结构完全不同的作品。微信公众号需要内联样式的 HTML。Dev.to 支持 Liquid 标签嵌入。
-
-每个平台适配器包含一个 `format.md` 文件，用自然语言描述该平台的内容规范。Claude 读这个文件，按照规则把源文件改写成平台原生的最佳格式。
-
-### 三文件适配器合约
-
-添加一个新平台只需要三个文件：
+Adding a new platform is just three files:
 
 ```
 adapters/my-platform/
-├── adapter.yaml    # 平台配置
-├── format.md       # 内容适配规则
-└── publish.sh      # 发布脚本
+├── adapter.yaml    # Platform config
+├── format.md       # Content adaptation rules
+└── publish.sh      # Publish script
 ```
 
-凭证通过环境变量隔离传入——每个脚本只能访问它声明需要的那一个 API Key。
+Credentials are isolated — each script only receives the API key it declares.
 
-## 开始使用
+## Get Started
 
 ```bash
 git clone https://github.com/Minara-AI/media-agent.git
-cd media-agent
-cp .env.example .env
-# 编辑 .env，填入你的 API Key
-
-# 在 Claude Code 中运行
-/media-setup    # 配置平台
-/media          # 开始写作
+cd media-agent && cp .env.example .env
+# Edit .env with your API keys
+# In Claude Code:
+/media-setup    # Configure platforms
+/media          # Start writing
 ```
 
-当前支持 GitHub Pages、Dev.to、Hashnode。Twitter/X 和微信公众号即将支持。
+Currently supports GitHub Pages, Dev.to, Hashnode, and Twitter/X. WeChat coming soon.
 
-项目完全开源，欢迎贡献：[github.com/Minara-AI/media-agent](https://github.com/Minara-AI/media-agent)
+Fully open source: [github.com/Minara-AI/media-agent](https://github.com/Minara-AI/media-agent)
