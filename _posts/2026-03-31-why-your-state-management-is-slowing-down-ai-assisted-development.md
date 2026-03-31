@@ -6,6 +6,7 @@ categories: [frontend, ai]
 tags: [react, state-management, ai-coding, typescript]
 description: "The flexibility that makes Zustand and Jotai great for humans is exactly what makes them painful for AI coding. By adopting a Model/Service/UI three-layer architecture, we raised AI code acceptance rates from 30% to 80%."
 canonical_url: ""
+image: /assets/images/hero.png
 ---
 
 Zustand and Jotai give developers freedom — but that freedom is poison for AI-assisted development.
