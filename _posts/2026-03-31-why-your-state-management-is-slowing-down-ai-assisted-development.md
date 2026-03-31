@@ -74,6 +74,8 @@ Think of it this way: **let humans write prose, let AI fill in forms.** Humans a
 
 ## The Solution: Model/Service/UI Three-Layer Separation
 
+![Model/Service/UI Three-Layer Architecture](/assets/images/architecture.png)
+
 Our answer wasn't to invent a new state management library. It was to **define an architectural pattern** so that AI knows exactly where each piece of code belongs and what it should look like.
 
 ### The Foundation: createReducer
@@ -290,6 +292,8 @@ Redux Toolkit's `createSlice` is actually in a similar direction — it also con
 > **A note for ReScript/OCaml users:** If you're familiar with ReScript, you might recognize that this is essentially an approximation of variant types + exhaustive pattern matching in TypeScript. ReScript's `switch` natively handles action exhaustiveness and payload type checking — which validates the idea of "using type constraints to guide code generation" from another angle. The difference is we don't need to switch languages — 30 lines of TypeScript gets you 80% of the constraint power.
 
 ## Benchmark: Same Task, Four Architectures, How Does AI Do?
+
+![State Management Approaches vs AI Code Generation Reliability](/assets/images/comparison.png)
 
 Theory only goes so far — let's look at actual results. We designed a unified task and asked AI (Claude Sonnet 4) to generate code using four different state management approaches, keeping every prompt condition identical except for the specified library.
 
