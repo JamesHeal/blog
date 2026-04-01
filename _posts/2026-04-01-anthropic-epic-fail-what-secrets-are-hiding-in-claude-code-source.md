@@ -123,7 +123,7 @@ Under `src/buddy/`: 18 species (including `capybara` — Claude 4.6's codename),
 
 ## The Architecture Behind 512K Lines
 
-![Claude Code Architecture Overview](/assets/images/architecture.png)
+![Claude Code Architecture Overview](/assets/images/architecture-claude-code-leak.png)
 
 **Tech stack:** Bun + TypeScript strict + React/Ink + Commander.js + Zod v4 + ripgrep + MCP/LSP + OpenTelemetry + GrowthBook
 
