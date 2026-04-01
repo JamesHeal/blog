@@ -4,7 +4,7 @@ title: "Anthropic Epic Fail: What Secrets Are Hiding in Claude Code Source?"
 date: 2026-04-01 00:00:00 +0800
 categories: [ai, security]
 tags: [claude-code, ai-agent, source-leak, anthropic]
-image: /assets/images/hero-blog.png
+image: /assets/images/hero-claude-code-leak.png
 description: "512K lines of Claude Code leaked — 6 shocking discoveries and full architecture breakdown"
 canonical_url: ""
 ---
