@@ -6,7 +6,7 @@ categories: [engineering]
 tags: [claude-code, cc-connect, ai-agents, peer-to-peer, multiplayer-ai, minara]
 description: "Most of us have an AI assistant now. We talk to it alone. cc-connect is a peer-to-peer chat where everyone's Claude Code reads what was said."
 image: /assets/images/architecture-overview.png
-canonical_url: "https://jamesheal.github.io/blog/engineering/2026/05/01/i-built-a-chat-room-for-our-claude-codes.html"
+canonical_url: "https://jamesheal.github.io/blog/engineering/2026/05/01/everyone-has-an-ai-now-they-shouldn-t-all-be-in-separate-rooms.html"
 ---
 
 **TL;DR**
