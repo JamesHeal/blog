@@ -114,6 +114,6 @@ The rooms I want to see, in no particular order:
 - Two open-source maintainers doing a contributor review with their respective agents both present.
 - The kind of conversation that ends with "wait, I just told my AI the wrong thing — let me re-ask it now that I've seen yours."
 
-If you want to play with it: `cc-connect room start`. Repo at [Minara-AI/cc-connect](https://github.com/Minara-AI/cc-connect). Come hang out in the [Discord](https://discord.gg/qa7dgHhSS) — that's where rooms are forming and where I'd love to hear what shared-context scenarios you'd actually want this for. I'd rather hear "I'd want this for X" than "great work" any day.
+If you want to play with it: `cc-connect room start`. Repo at [Minara-AI/cc-connect](https://github.com/Minara-AI/cc-connect). Tell me what shared-context scenarios you'd actually want this for — I'd rather hear "I'd want this for X" than "great work" any day.
 
 The interesting design question of the AI-assistant era isn't "how do we share an AI?" It's "what substrate do everyone's AIs share?" cc-connect is one answer. I'm sure it isn't the last one.
