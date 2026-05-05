@@ -94,6 +94,6 @@ What I'd love to hear from people trying it:
 - **Permission UX you'd actually want.** The pill plus inline bubble works for me, but mode-switching is still a manual choice; a smarter default (per-tool, per-Room, per-time-of-day) feels like real territory.
 - **Other editors / clients you'd build on the substrate.** If you'd want this in JetBrains, in Zed, in Helix, in your team's bespoke web tool — say so. The contract is small and we'd help.
 
-If you want to play with it: clone [Minara-AI/cc-connect](https://github.com/Minara-AI/cc-connect), follow the [`vscode-extension/`](https://github.com/Minara-AI/cc-connect/tree/main/vscode-extension) README, F5 the dev host. Come hang out in the [Discord](https://discord.gg/qa7dgHhSS) — that's where rooms are forming and where I'd love to hear which surface comes next.
+If you want to play with it: clone [Minara-AI/cc-connect](https://github.com/Minara-AI/cc-connect), follow the [`vscode-extension/`](https://github.com/Minara-AI/cc-connect/tree/main/vscode-extension) README, F5 the dev host. I'd love to hear which surface comes next.
 
 The interesting design question is still the same one. cc-connect is one answer to "what substrate do everyone's AIs share?" The VSCode extension is one answer to "where does the substrate show up in the human's actual workflow." Neither is the last one.
